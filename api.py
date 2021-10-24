@@ -15,6 +15,9 @@ def home():
 # A route to return all of the available entries in our catelog.
 @app.route('/api/v1/resources/drivers/all', methods=['GET'])
 def api_all():
+    """
+    @description: pulls in data from drivers.csv
+    """
     df = read_csv('data/drivers.csv')
     result = df.to_json(orient='records')
     all_drivers = loads(result)
@@ -22,19 +25,28 @@ def api_all():
 
 
 @app.errorhandler(404)
-def page_not_found(e):
+def page_not_found(error):
+    """
+    @description: create an error page if the user encounters an error or
+      inputs a route that hasn't been defined
+    """
     return "<h1>404</h1><p>The resource could not be found.</p>", 404
 
 
 @app.route('/api/v1/resources/drivers', methods=['GET'])
-def api_id():
+def api_filter():
     df = read_csv('data/drivers.csv')
     filter_columns = ['code', 'nationality', 'number', 'surname']
+    provided = False
 
     for column in filter_columns:
         param = request.args.get(column)
         if param:
             df = df[df[column] == param]
+            provided = True
+
+    if not provided:
+        return page_not_found(404)
 
     results = df.to_json(orient='records')
     drivers = loads(results)
