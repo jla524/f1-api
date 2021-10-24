@@ -20,8 +20,7 @@ def api_all():
     """
     df = read_csv('data/drivers.csv')
     result = df.to_json(orient='records')
-    all_drivers = loads(result)
-    return jsonify(all_drivers)
+    return jsonify(loads(result))
 
 
 @app.errorhandler(404)
@@ -52,8 +51,7 @@ def api_filter():
         return page_not_found(404)
 
     results = df.to_json(orient='records')
-    drivers = loads(results)
-    return jsonify(drivers)
+    return jsonify(loads(results))
 
 
 if __name__ == '__main__':
