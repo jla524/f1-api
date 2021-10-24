@@ -16,7 +16,7 @@ def home():
 @app.route('/api/v1/resources/drivers/all', methods=['GET'])
 def api_all():
     """
-    @description: pulls in data from drivers.csv
+    @description: pulls all data from drivers.csv
     """
     df = read_csv('data/drivers.csv')
     result = df.to_json(orient='records')
@@ -35,6 +35,9 @@ def page_not_found(error):
 
 @app.route('/api/v1/resources/drivers', methods=['GET'])
 def api_filter():
+    """
+    @description: pulls data from drivers.csv and filters by various fields
+    """
     df = read_csv('data/drivers.csv')
     filter_columns = ['code', 'nationality', 'number', 'surname']
     provided = False
