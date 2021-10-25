@@ -1,19 +1,15 @@
 #!/usr/bin/env python3
 from json import loads
+
 from pandas import read_csv
-from flask import Flask, jsonify, request
+from flask import jsonify, request
 
-app = Flask(__name__)
-app.config['DEBUG'] = True
-
-
-@app.route('/', methods=['GET'])
-def home():
-    return "<h1>F1 API</h1> <p>This site is an API for F1 drivers.</p>"
+from api.route import home_api
+from api.route.not_found import page_not_found
 
 
 # A route to return all of the available entries in our catelog.
-@app.route('/api/v1/resources/drivers/all', methods=['GET'])
+@home_api.route('/api/v1/resources/drivers/all', methods=['GET'])
 def api_all():
     """
     @description: pulls all data from drivers.csv
@@ -23,16 +19,7 @@ def api_all():
     return jsonify(loads(result))
 
 
-@app.errorhandler(404)
-def page_not_found(error):
-    """
-    @description: create an error page if the user encounters an error or
-      inputs a route that hasn't been defined
-    """
-    return "<h1>404</h1><p>The resource could not be found.</p>", 404
-
-
-@app.route('/api/v1/resources/drivers', methods=['GET'])
+@home_api.route('/api/v1/resources/drivers', methods=['GET'])
 def api_filter():
     """
     @description: pulls data from drivers.csv and filters by various fields
@@ -52,7 +39,3 @@ def api_filter():
 
     results = df.to_json(orient='records')
     return jsonify(loads(results))
-
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=105)
