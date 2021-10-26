@@ -1,9 +1,14 @@
-# f1-api
+# F1 API
 
-An API made for Formula 1 data.
+An API for Formula 1 data.
 
 
-# Quickstart
+# Acknowledgement
+
+The dataset is provided by [Ergast Developer](http://ergast.com/mrd/)
+
+
+# Instructions to run
 ```
 mkdir data
 
