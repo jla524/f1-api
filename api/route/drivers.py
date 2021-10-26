@@ -7,7 +7,7 @@ from api.commons.helpers import pull_all_data, pull_filtered_data
 
 
 @home_api.route('/api/v1/resources/drivers/all', methods=['GET'])
-def api_all():
+def drivers_all():
     """
     @description: get all data from drivers.csv
     """
@@ -15,9 +15,10 @@ def api_all():
 
 
 @home_api.route('/api/v1/resources/drivers', methods=['GET'])
-def api_filter():
+def drivers_filter():
     """
     @description: get data from drivers.csv and filters by args
     """
+    file = Config.drivers_file()
     columns = ['code', 'nationality', 'number', 'surname']
-    return pull_filtered_data(Config.drivers_file(), columns, request.args)
+    return pull_filtered_data(file, columns, request.args)
