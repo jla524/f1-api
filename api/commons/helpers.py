@@ -20,15 +20,15 @@ def pull_filtered_data(file, columns, parameters):
     @description: pull data from file and filter by parameters
     """
     df = read_csv(file)
-    provided = False
+    param_match = False
 
     for column in columns:
         param = parameters.get(column)
         if param:
             df = df[df[column] == param]
-            provided = True
+            param_match = True
 
-    if not provided:
+    if not param_match:
         return page_not_found(404)
 
     results = df.to_json(orient='records')
