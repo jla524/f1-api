@@ -1,7 +1,7 @@
-from api.route import home_api
+from api.route import api
 
 
-@home_api.errorhandler(404)
+@api.errorhandler(404)
 def page_not_found(error):
     """
     @description: create an error page if the user encounters an error or

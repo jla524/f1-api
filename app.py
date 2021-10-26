@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-from api.route import home_api, drivers
+from api.route import api, circuits, constructors, drivers, races
 
 
 def main():
-    home_api.run(host='0.0.0.0', port=105)
+    api.run(host='0.0.0.0', port=105)
 
 
 if __name__ == '__main__':
