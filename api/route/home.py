@@ -1,6 +1,9 @@
-from api.route import api
+from flask import Blueprint
+
+home_api = Blueprint('api', __name__)
 
 
-@api.route('/', methods=['GET'])
+@home_api.route('/', methods=['GET'])
 def home():
-    return "<h1>F1 API</h1> <p>This site is an API for F1 drivers.</p>"
+    print("Hello")
+    return "<h1>F1 API</h1> <p>This site is an API for Formula 1 data.</p>"

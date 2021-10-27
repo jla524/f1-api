@@ -1,11 +1,11 @@
 from flask import request
 
 from api import Config
-from api.route import api
+from api.route.home import home_api
 from api.commons.helpers import pull_all_data, pull_filtered_data
 
 
-@api.route('/api/v1/resources/circuits/all', methods=['GET'])
+@home_api.route('/v1/resources/circuits/all', methods=['GET'])
 def circuits_all():
     """
     @description: get all data from circuits.csv
@@ -13,7 +13,7 @@ def circuits_all():
     return pull_all_data(Config.circuits_file())
 
 
-@api.route('/api/v1/resources/circuits', methods=['GET'])
+@home_api.route('/v1/resources/circuits', methods=['GET'])
 def circuits_filter():
     """
     @description: get data from constructors.csv and filters by args

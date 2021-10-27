@@ -25,7 +25,7 @@ def pull_filtered_data(file, columns, parameters):
     for column in columns:
         param = parameters.get(column)
         if param:
-            df = df[df[column] == param]
+            df = df[df[column].str.lower() == param]
             param_match = True
 
     if not param_match:
