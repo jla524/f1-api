@@ -5,7 +5,7 @@ from api.route.home import home_api
 from api.commons.helpers import pull_all_data, pull_filtered_data
 
 
-@home_api.route('/api/v1/resources/races/all', methods=['GET'])
+@home_api.route('/v1/resources/races/all', methods=['GET'])
 def races_all():
     """
     @description: get all data from races.csv
@@ -14,7 +14,7 @@ def races_all():
     return jsonify(data)
 
 
-@home_api.route('/api/v1/resources/races', methods=['GET'])
+@home_api.route('/v1/resources/races', methods=['GET'])
 def races_filter():
     """
     @description: get data from races.csv and filters by args
