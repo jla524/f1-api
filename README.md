@@ -1,9 +1,14 @@
-# f1-api
+# F1 API
 
 A simple API made for Formula 1 data.
 
 
-# Quickstart
+# Acknowledgement
+
+The dataset is provided by [Ergast Developer](http://ergast.com/mrd/)
+
+
+# Instructions to run
 ```
 wget http://ergast.com/downloads/f1db_csv.zip
 
@@ -13,6 +18,7 @@ poetry install
 
 poetry run python3 -m flask run
 ```
+
 
 # TODOs
 - Add unit tests
