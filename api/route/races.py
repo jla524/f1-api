@@ -1,4 +1,4 @@
-from flask import request
+from flask import jsonify, request
 
 from api import Config
 from api.route.home import home_api
@@ -10,7 +10,8 @@ def races_all():
     """
     @description: get all data from races.csv
     """
-    return pull_all_data(Config.races_file())
+    data = pull_all_data(Config.races_file())
+    return jsonify(data)
 
 
 @home_api.route('/api/v1/resources/races', methods=['GET'])
@@ -20,4 +21,5 @@ def races_filter():
     """
     file = Config.races_file()
     columns = ['year', 'name', 'date']
-    return pull_filtered_data(file, columns, request.args)
+    data = pull_filtered_data(file, columns, request.args)
+    return jsonify(data)
