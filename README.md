@@ -21,4 +21,9 @@ poetry run python3 -m flask run
 
 
 # TODOs
-- Add unit tests
+
+- Add all F1 data files to route
+
+- Add unit test for case insensitivity when filtering data
+
+- Improve code reuse for unit tests
