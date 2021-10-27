@@ -1,11 +1,11 @@
 from flask import request
 
 from api import Config
-from api.route import api
+from api.route.home import home_api
 from api.commons.helpers import pull_all_data, pull_filtered_data
 
 
-@api.route('/api/v1/resources/drivers/all', methods=['GET'])
+@home_api.route('/v1/resources/drivers/all', methods=['GET'])
 def drivers_all():
     """
     @description: get all data from drivers.csv
@@ -13,7 +13,7 @@ def drivers_all():
     return pull_all_data(Config.drivers_file())
 
 
-@api.route('/api/v1/resources/drivers', methods=['GET'])
+@home_api.route('/v1/resources/drivers', methods=['GET'])
 def drivers_filter():
     """
     @description: get data from drivers.csv and filters by args
