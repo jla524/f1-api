@@ -1,29 +1,24 @@
-from unittest import TestCase
 from json import loads
 
 from pandas import read_csv
 
-from app import create_app
 from api import Config
+from api.commons.helpers import get_data_file
+from tests.fixture import Fixture
 
 
-class TestCaseInsensitivity(TestCase):
-    _file = Config.drivers_file()
-
-    def setUp(self):
-        """
-        @description: return a test client
-        """
-        self.app = create_app().test_client()
+class TestCaseInsensitivity(Fixture):
+    _name = 'drivers'
 
     def pull_case_sensitive_data(self, key, value):
         """
         @description: pull data from drivers.csv and filter by value without
           altering the letter case
         """
-        data = read_csv(self._file)
+        file = get_data_file(self._name)
+        data = read_csv(file)
         data = data[data[key] == value]
-        result = data.to_json(orient='records')
+        result = data.to_json(orient=Config.orient())
         return loads(result)
 
     def compare_data(self, key, value1, value2):
@@ -33,7 +28,8 @@ class TestCaseInsensitivity(TestCase):
           from the api call
         """
         data = self.pull_case_sensitive_data(key, value1)
-        content = self.app.get(f'/api/v1/resources/drivers?{key}={value2}')
+        route = f'/api/v1/resources/{self._name}?{key}={value2}'
+        content = self.app.get(route)
         self.assertEqual(data, content.get_json())
 
     def test_uppercase(self):

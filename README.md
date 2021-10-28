@@ -32,6 +32,4 @@ poetry run flask run
 
 - Add all files in the dataset to route
 
-- Improve code reuse for unit tests
-
 - Simplify process to download dataset
