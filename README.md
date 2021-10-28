@@ -32,4 +32,6 @@ poetry run flask run
 
 - Add all files in the dataset to route
 
+- Set up GitHub Actions for continous integration
+
 - Simplify process to download dataset
