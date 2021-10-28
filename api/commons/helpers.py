@@ -9,8 +9,8 @@ def pull_all_data(file):
     """
     @description: pull all data from file
     """
-    df = read_csv(file)
-    result = df.to_json(orient='records')
+    data = read_csv(file)
+    result = data.to_json(orient='records')
     return loads(result)
 
 
@@ -18,17 +18,17 @@ def pull_filtered_data(file, columns, parameters):
     """
     @description: pull data from file and filter by parameters
     """
-    df = read_csv(file)
+    data = read_csv(file)
     param_match = False
 
     for column in columns:
         param = parameters.get(column)
         if param:
-            df = df[df[column].str.lower() == param]
+            data = data[data[column].str.lower() == param.lower()]
             param_match = True
 
     if not param_match:
         return page_not_found(404)
 
-    results = df.to_json(orient='records')
+    results = data.to_json(orient='records')
     return loads(results)

@@ -7,6 +7,9 @@ from api.commons.helpers import pull_all_data, pull_filtered_data
 
 class TestCircuits(TestCase):
     def setUp(self):
+        """
+        @description: return a test client
+        """
         self.app = create_app().test_client()
 
     def test_circuits_all(self):
