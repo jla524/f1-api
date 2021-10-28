@@ -20,6 +20,6 @@ def drivers_filter():
     @description: get data from drivers.csv and filters by args
     """
     file = Config.drivers_file()
-    columns = ['code', 'nationality', 'number', 'surname']
+    columns = ['code', 'forename', 'nationality', 'number', 'surname']
     data = pull_filtered_data(file, columns, request.args)
     return jsonify(data)

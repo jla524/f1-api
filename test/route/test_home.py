@@ -5,6 +5,9 @@ from app import create_app
 
 class TestHome(TestCase):
     def setUp(self):
+        """
+        @description: return a test client
+        """
         self.app = create_app().test_client()
 
     def test_home(self):
