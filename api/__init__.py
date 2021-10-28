@@ -29,8 +29,8 @@ class Config(metaclass=ThreadSafeMeta):
     """
     __version = '0.1.0'
     __package = __package__
-    __base_dir = Path(__file__).resolve(strict=True).parent.parent
 
+    __base_dir = Path(__file__).resolve(strict=True).parent.parent
     __data_dir = __base_dir / 'data'
     __circuits_file = __data_dir / 'circuits.csv'
     __constructors_file = __data_dir / 'constructors.csv'
@@ -38,6 +38,7 @@ class Config(metaclass=ThreadSafeMeta):
     __races_file = __data_dir / 'races.csv'
 
     __default_env = 'dev'
+    __orient = 'records'
 
     @classmethod
     def version(cls):
@@ -94,3 +95,10 @@ class Config(metaclass=ThreadSafeMeta):
         @description: getter for races file
         """
         return cls.__races_file
+
+    @classmethod
+    def orient(cls):
+        """
+        @description: getter for JSON format
+        """
+        return cls.__orient

@@ -1,14 +1,7 @@
-from unittest import TestCase
-
-from app import create_app
+from tests.fixture import Fixture
 
 
-class TestHome(TestCase):
-    def setUp(self):
-        """
-        @description: return a test client
-        """
-        self.app = create_app().test_client()
+class TestHome(Fixture):
 
     def test_home(self):
         """

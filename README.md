@@ -32,6 +32,6 @@ poetry run flask run
 
 - Add all files in the dataset to route
 
-- Improve code reuse for unit tests
+- Set up GitHub Actions for continous integration
 
 - Simplify process to download dataset
