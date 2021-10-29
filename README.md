@@ -21,10 +21,5 @@ poetry run flask run
 ```
 
 
-## TODO
-
-- Add test cases for helper functions
-
-
 [1]: https://en.wikipedia.org/wiki/Formula_One
 [2]: http://ergast.com/mrd
