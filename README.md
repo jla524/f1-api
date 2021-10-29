@@ -8,17 +8,6 @@ A simple API made for Formula 1 data.
 The dataset is provided by [Ergast Developer](http://ergast.com/mrd/)
 
 
-# Download the dataset
-```
-mkdir data/
-
-wget http://ergast.com/downloads/f1db_csv.zip
-
-unzip -d data f1db_csv.zip
-
-rm f1db_csv.zip
-```
-
 
 # Instructions to run
 ```
@@ -28,8 +17,6 @@ poetry run flask run
 ```
 
 
-# TODOs
+# TODO
 
-- Use poetry in GitHub workflow
-
-- Simplify process to download dataset
+- Add test cases for helper functions
