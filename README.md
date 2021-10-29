@@ -17,8 +17,6 @@ poetry run flask run
 ```
 
 
-# TODOs
+# TODO
 
 - Add test cases for helper functions
-
-- Add workflow to check number of lines
