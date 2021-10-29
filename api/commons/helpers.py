@@ -9,6 +9,12 @@ from api import Config
 from api.route.not_found import page_not_found
 
 
+def make_dataset():
+    """
+    @description: download the F1 dataset if it is not in the data/ directory
+    """
+
+
 def pull_all_data(file):
     """
     @description: pull all data from file
