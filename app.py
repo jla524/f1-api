@@ -17,6 +17,7 @@ def create_app():
     """
     app = Flask(__name__)
     app.config.from_object('config')
+    make_dataset()
 
     app.register_blueprint(home)
     app.register_blueprint(circuits)
@@ -40,6 +41,5 @@ if __name__ == '__main__':
     host = args.host
     port = args.port
 
-    make_dataset()
     my_app = create_app()
     my_app.run(host=host, port=port)
