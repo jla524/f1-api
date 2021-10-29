@@ -2,11 +2,13 @@
 Create and run the Flask app
 """
 from flask import Flask
+
 from api.route.circuits import circuits
 from api.route.constructors import constructors
 from api.route.drivers import drivers
 from api.route.home import home
 from api.route.races import races
+from api.commons.helpers import make_dataset
 
 
 def create_app():
@@ -35,5 +37,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
     port = args.port
 
+    make_dataset()
     my_app = create_app()
     my_app.run(host='0.0.0.0', port=port)
