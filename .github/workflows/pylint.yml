@@ -4,32 +4,26 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        poetry-version: [1.0, 1.1.11]
+        os: [ubuntu-18.04, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v2
       with:
         fetch-depth: 1
     - name: Set up Python 3.9
-      uses: actions/setup-python@v2.2.1
+      uses: actions/setup-python@v2
       with:
         python-version: 3.9
     - name: Install Poetry
-      uses: dschep/install-poetry-action@v1.2
-    - name: Cache Poetry virtualenv
-      uses: actions/cache@v1
-      id: cache
+      uses: abatilo/actions-poetry@v2.0.0
       with:
-        path: ~/.virtualenvs
-        key: poetry-${{ hashFiles('**/poetry.lock') }}
-        restore-keys: |
-          poetry-${{ hashFiles('**/poetry.lock') }}
-    - name: Set Poetry config
-      run: |
-        poetry config virtualenvs.in-project false
-        poetry config virtualenvs.path ~/.virtualenvs
+        poetry version: ${{ matrix.poetry-version }}
     - name: Install dependencies
       run: poetry install
-      if: steps.cache.outputs.cache-hit != 'true'
     - name: Check code quality with pylint
       run: |
         poetry run pylint $(find . -name "*.py" | xargs)
