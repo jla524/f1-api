@@ -16,7 +16,7 @@ jobs:
         unzip -d data f1db_csv.zip
         rm f1db_csv.zip
     - name: Set up Python 3.9
-      uses: actions/setup-python@v2.2.1
+      uses: actions/setup-python@v2
       with:
         python-version: 3.9
     - name: Install Poetry

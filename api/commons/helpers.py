@@ -1,6 +1,9 @@
 """
 Define helper functions
 """
+import requests
+from io import BytesIO
+from zipfile import ZipFile
 from json import loads
 
 from pandas import read_csv
@@ -13,6 +16,12 @@ def make_dataset():
     """
     @description: download the F1 dataset if it is not in the data/ directory
     """
+    url = 'http://ergast.com/downloads/f1db_csv.zip'
+    response = requests.get(url).content
+    zip_file = ZipFile(BytesIO(response.read()))
+
+    for line in zip_file.open(file).readlines():
+        print(line.decode('utf-8'[:50])
 
 
 def pull_all_data(file):
