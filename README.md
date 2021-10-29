@@ -30,6 +30,6 @@ poetry run flask run
 
 # TODOs
 
-- Fix test cases (currently 7/12 fail)
+- Use poetry in GitHub workflow
 
 - Simplify process to download dataset

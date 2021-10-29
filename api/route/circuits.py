@@ -18,7 +18,7 @@ def circuits_all():
     return jsonify(data)
 
 
-@circuits.route('/', methods=['GET'])
+@circuits.route('', methods=['GET'])
 def circuits_filter():
     """
     @description: get data from constructors.csv and filters by args

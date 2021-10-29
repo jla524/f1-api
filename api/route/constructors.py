@@ -19,7 +19,7 @@ def constructors_all():
     return jsonify(data)
 
 
-@constructors.route('/', methods=['GET'])
+@constructors.route('', methods=['GET'])
 def constructors_filter():
     """
     @description: get data from constructors.csv and filters by args

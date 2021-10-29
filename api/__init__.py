@@ -37,14 +37,14 @@ class Config(metaclass=ThreadSafeMeta):
     __drivers_file = __data_dir / 'drivers.csv'
     __races_file = __data_dir / 'races.csv'
 
+    __orient = 'records'
+
     __api_route = '/api'
     __resources_route = '/'.join([__api_route, 'v1', 'resources'])
     __circuits_route = '/'.join([__resources_route, 'circuits'])
     __constructors_route = '/'.join([__resources_route, 'constructors'])
     __drivers_route = '/'.join([__resources_route, 'drivers'])
     __races_route = '/'.join([__resources_route, 'races'])
-
-    __orient = 'records'
 
     @classmethod
     def version(cls):
@@ -103,6 +103,13 @@ class Config(metaclass=ThreadSafeMeta):
         return cls.__races_file
 
     @classmethod
+    def orient(cls):
+        """
+        @description: getter for JSON format
+        """
+        return cls.__orient
+
+    @classmethod
     def api_route(cls):
         """
         @description: getter for api route
@@ -136,10 +143,3 @@ class Config(metaclass=ThreadSafeMeta):
         @description: getter for races route
         """
         return cls.__races_route
-
-    @classmethod
-    def orient(cls):
-        """
-        @description: getter for JSON format
-        """
-        return cls.__orient
