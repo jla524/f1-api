@@ -31,12 +31,15 @@ if __name__ == '__main__':
     from argparse import ArgumentParser
 
     parser = ArgumentParser()
+    parser.add_argument('-H', '--host', default='0.0.0.0',
+                        type=str, help='the interface to bind to')
     parser.add_argument('-p', '--port', default=5000,
-                        type=int, help='port to listen on')
+                        type=int, help='the port to bind to')
 
     args = parser.parse_args()
+    host = args.host
     port = args.port
 
     make_dataset()
     my_app = create_app()
-    my_app.run(host='0.0.0.0', port=port)
+    my_app.run(host=host, port=port)
