@@ -1,3 +1,9 @@
+"""
+Define test cases for the data filter to verify that the search queries are
+  case insensitive. That is, the search results should be the same whether we
+  filter by all upper case values, all lower cases values, or a mix of both.
+  The filter should also work with numerical values.
+"""
 from json import loads
 
 from pandas import read_csv
@@ -8,6 +14,9 @@ from tests.fixture import Fixture
 
 
 class TestCaseInsensitivity(Fixture):
+    """
+    @description: test cases to verify case insentivity
+    """
     _name = 'drivers'
 
     def pull_case_sensitive_data(self, key, value):

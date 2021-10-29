@@ -1,12 +1,17 @@
+"""
+Define test cases for the /api route
+"""
 from tests.fixture import Fixture
 
 
 class TestHome(Fixture):
-
+    """
+    @description: test cases for the api route
+    """
     def test_home(self):
         """
         @description: test the route screen message
         """
-        rv = self.app.get('/api/')
+        response = self.app.get('/api/')
         message = "This site is an API for Formula 1 data."
-        self.assertIn(message, rv.get_data().decode())
+        self.assertIn(message, response.get_data().decode())

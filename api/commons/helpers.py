@@ -1,3 +1,6 @@
+"""
+Define helper functions
+"""
 from json import loads
 
 from pandas import read_csv
@@ -29,13 +32,16 @@ def pull_filtered_data(file, columns, parameters):
             param_match = True
 
     if not param_match:
-        return page_not_found(404)
+        return page_not_found()
 
     results = data.to_json(orient=Config.orient())
     return loads(results)
 
 
 def get_data_file(name):
+    """
+    @description: maps the given name to a data file
+    """
     file_map = {
         'circuits': Config.circuits_file(),
         'constructors': Config.constructors_file(),

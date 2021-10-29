@@ -30,6 +30,6 @@ poetry run flask run
 
 # TODOs
 
-- Set up GitHub Actions for continous integration
+- Fix test cases (currently 7/12 fail)
 
 - Simplify process to download dataset

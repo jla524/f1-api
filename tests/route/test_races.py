@@ -1,7 +1,13 @@
+"""
+Define test cases for the /api/v1/resources/races route
+"""
 from tests.fixture import Fixture
 
 
 class TestRaces(Fixture):
+    """
+    @descriptioon: test cases for the races route
+    """
     _name = 'races'
 
     def test_races_all(self):

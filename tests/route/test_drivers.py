@@ -1,7 +1,13 @@
+"""
+Define test cases for the /api/v1/resources/drivers route
+"""
 from tests.fixture import Fixture
 
 
 class TestDrivers(Fixture):
+    """
+    @description: test cases for the drivers route
+    """
     _name = 'drivers'
 
     def test_drivers_all(self):

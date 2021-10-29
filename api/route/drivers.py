@@ -1,11 +1,15 @@
-from flask import jsonify, request
+"""
+Define content for the /api/v1/resources/drivers route
+"""
+from flask import Blueprint, jsonify, request
 
 from api import Config
-from api.route.home import home_api
 from api.commons.helpers import pull_all_data, pull_filtered_data
 
+drivers = Blueprint('drivers', __name__, url_prefix=Config.drivers_route())
 
-@home_api.route('/v1/resources/drivers/all', methods=['GET'])
+
+@drivers.route('/all', methods=['GET'])
 def drivers_all():
     """
     @description: get all data from drivers.csv
@@ -14,7 +18,7 @@ def drivers_all():
     return jsonify(data)
 
 
-@home_api.route('/v1/resources/drivers', methods=['GET'])
+@drivers.route('/', methods=['GET'])
 def drivers_filter():
     """
     @description: get data from drivers.csv and filters by args

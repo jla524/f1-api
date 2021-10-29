@@ -1,8 +1,12 @@
-from api.route.home import home_api
+"""
+Define the error page
+"""
+from flask import Blueprint
 
+not_found = Blueprint('api', __name__)
 
-@home_api.errorhandler(404)
-def page_not_found(error):
+@not_found.errorhandler(404)
+def page_not_found():
     """
     @description: create an error page if the user encounters an error or
       inputs a route that hasn't been defined

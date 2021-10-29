@@ -1,7 +1,13 @@
+"""
+Define test cases for the /api/resources/circuits route
+"""
 from tests.fixture import Fixture
 
 
 class TestCircuits(Fixture):
+    """
+    @description: test cases for the circuits route
+    """
     _name = 'circuits'
 
     def test_circuits_all(self):

@@ -37,7 +37,13 @@ class Config(metaclass=ThreadSafeMeta):
     __drivers_file = __data_dir / 'drivers.csv'
     __races_file = __data_dir / 'races.csv'
 
-    __default_env = 'dev'
+    __api_route = '/api'
+    __resources_route = '/'.join([__api_route, 'v1', 'resources'])
+    __circuits_route = '/'.join([__resources_route, 'circuits'])
+    __constructors_route = '/'.join([__resources_route, 'constructors'])
+    __drivers_route = '/'.join([__resources_route, 'drivers'])
+    __races_route = '/'.join([__resources_route, 'races'])
+
     __orient = 'records'
 
     @classmethod
@@ -95,6 +101,41 @@ class Config(metaclass=ThreadSafeMeta):
         @description: getter for races file
         """
         return cls.__races_file
+
+    @classmethod
+    def api_route(cls):
+        """
+        @description: getter for api route
+        """
+        return cls.__api_route
+
+    @classmethod
+    def circuits_route(cls):
+        """
+        @description: getter for circuits route
+        """
+        return cls.__circuits_route
+
+    @classmethod
+    def constructors_route(cls):
+        """
+        @description: getter for constructors route
+        """
+        return cls.__constructors_route
+
+    @classmethod
+    def drivers_route(cls):
+        """
+        @description: getter for drivers route
+        """
+        return cls.__drivers_route
+
+    @classmethod
+    def races_route(cls):
+        """
+        @description: getter for races route
+        """
+        return cls.__races_route
 
     @classmethod
     def orient(cls):

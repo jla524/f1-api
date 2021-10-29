@@ -1,7 +1,13 @@
+"""
+Define test cases for the /api/v1/resources/constructors route
+"""
 from tests.fixture import Fixture
 
 
 class TestConstructors(Fixture):
+    """
+    @description: test cases for the constructors route
+    """
     _name = 'constructors'
 
     def test_constructors_all(self):
