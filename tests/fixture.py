@@ -24,8 +24,8 @@ class Fixture(TestCase):
         """
         file = helpers.get_data_file(name)
         data = helpers.pull_all_data(file)
-        content = self.app.get(f'/api/v1/resources/{name}/all')
-        self.assertEqual(data, content.get_json())
+        response = self.app.get(f'/api/v1/resources/{name}/all')
+        self.assertEqual(data, response.get_json())
 
     def check_route_filtered(self, name, key, value):
         """
@@ -34,5 +34,5 @@ class Fixture(TestCase):
         """
         file = helpers.get_data_file(name)
         data = helpers.pull_filtered_data(file, [key], {key: value})
-        content = self.app.get(f'/api/v1/resources/{name}?{key}={value}')
-        self.assertEqual(data, content.get_json())
+        response = self.app.get(f'/api/v1/resources/{name}?{key}={value}')
+        self.assertEqual(data, response.get_json())

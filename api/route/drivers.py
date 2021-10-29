@@ -18,7 +18,7 @@ def drivers_all():
     return jsonify(data)
 
 
-@drivers.route('/', methods=['GET'])
+@drivers.route('', methods=['GET'])
 def drivers_filter():
     """
     @description: get data from drivers.csv and filters by args

@@ -18,7 +18,7 @@ def races_all():
     return jsonify(data)
 
 
-@races.route('/', methods=['GET'])
+@races.route('', methods=['GET'])
 def races_filter():
     """
     @description: get data from races.csv and filters by args
