@@ -19,4 +19,6 @@ poetry run flask run
 
 # TODOs
 
-- Use poetry in GitHub workflow
+- Add test cases for helper functions
+
+- Add workflow to check number of lines
