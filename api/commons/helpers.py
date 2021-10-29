@@ -18,10 +18,12 @@ def make_dataset():
     """
     url = 'http://ergast.com/downloads/f1db_csv.zip'
     response = requests.get(url).content
-    zip_file = ZipFile(BytesIO(response.read()))
 
-    for line in zip_file.open(file).readlines():
-        print(line.decode('utf-8'[:50])
+    with ZipFile(BytesIO(response)) as zip_file:
+        for file_name in zip_file.namelist():
+            with zip_file.open(file_name) as file:
+                for line in file.readlines():
+                    print(line.decode('utf-8'[:50]))
 
 
 def pull_all_data(file):
