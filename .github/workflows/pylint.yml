@@ -22,6 +22,8 @@ jobs:
     - name: Install dependencies
       run: |
         poetry install
+        python -m pip install --upgrade pip
+        pip install pylint
     - name: Analysing the code with pylint
       run: |
         pylint $(find . -name "*.py" | xargs)
