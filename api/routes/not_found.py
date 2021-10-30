@@ -5,6 +5,7 @@ from flask import Blueprint
 
 not_found = Blueprint('api', __name__)
 
+
 @not_found.errorhandler(404)
 def page_not_found():
     """

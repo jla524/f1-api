@@ -3,11 +3,8 @@ Create and run the Flask app
 """
 from flask import Flask
 
-from api.route.circuits import circuits
-from api.route.constructors import constructors
-from api.route.drivers import drivers
-from api.route.home import home
-from api.route.races import races
+from api.routes.home import home
+from api.routes.blueprints import make_blueprints
 from api.commons.helpers import make_dataset
 
 
@@ -20,10 +17,9 @@ def create_app():
     make_dataset()
 
     app.register_blueprint(home)
-    app.register_blueprint(circuits)
-    app.register_blueprint(constructors)
-    app.register_blueprint(drivers)
-    app.register_blueprint(races)
+
+    for blueprint in make_blueprints():
+        app.register_blueprint(blueprint)
 
     return app
 
