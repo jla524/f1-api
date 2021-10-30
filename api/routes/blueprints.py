@@ -31,7 +31,7 @@ def get_filtered_data(stem, parameters):
     for column in data.columns:
         param = parameters.get(column)
         if param:
-            data = data[data[column].str.lower() == param.lower()]
+            data = data[data[column] == param]
             param_match = True
 
     if not param_match:

@@ -1,12 +1,12 @@
 """
-Define test cases for the /api route
+Define test cases for api/routes/home.py
 """
 from tests.fixture import Fixture
 
 
 class TestHome(Fixture):
     """
-    @description: test cases for the api route
+    @description: test cases for the home route
     """
     def test_home(self):
         """

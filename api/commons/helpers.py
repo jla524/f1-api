@@ -28,11 +28,11 @@ def get_file_name(name):
     """
     @description: getter for a specific data file
     """
-    return DataRoutes().get_file_map().get(name, '')
+    return DataRoutes().get_file_map().get(name)
 
 
 def get_route(name):
     """
     @description: getter for a specific route name
     """
-    return DataRoutes().get_route_map().get(name, '')
+    return DataRoutes().get_route_map().get(name)
