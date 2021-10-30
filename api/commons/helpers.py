@@ -1,13 +1,11 @@
 """
 Define helper functions
 """
-from json import loads
 from io import BytesIO
 from zipfile import ZipFile
 from urllib.request import urlopen
 
 from api import Config
-from api.routes.not_found import page_not_found
 from api.commons.data_routes import DataRoutes
 
 
@@ -30,11 +28,11 @@ def get_file_name(name):
     """
     @description: getter for a specific data file
     """
-    return DataRoutes().get_file_map().get(name)
+    return DataRoutes().get_file_map().get(name, '')
 
 
 def get_route(name):
     """
     @description: getter for a specific route name
     """
-    return DataRoutes().get_route_map().get(name)
+    return DataRoutes().get_route_map().get(name, '')
