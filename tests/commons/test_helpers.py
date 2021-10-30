@@ -10,7 +10,7 @@ from tests.fixture import Fixture
 class TestHelpers(Fixture):
     """
     @description: test cases for helper functions
-    """ 
+    """
     def test_make_dataset(self):
         """
         @description: test the make_dataset function
