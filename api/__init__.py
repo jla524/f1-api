@@ -32,114 +32,56 @@ class Config(metaclass=ThreadSafeMeta):
 
     __base_dir = Path(__file__).resolve(strict=True).parent.parent
     __data_dir = __base_dir / 'data'
-    __circuits_file = __data_dir / 'circuits.csv'
-    __constructors_file = __data_dir / 'constructors.csv'
-    __drivers_file = __data_dir / 'drivers.csv'
-    __races_file = __data_dir / 'races.csv'
-
-    __orient = 'records'
 
     __api_route = '/api'
     __resources_route = '/'.join([__api_route, 'v1', 'resources'])
-    __circuits_route = '/'.join([__resources_route, 'circuits'])
-    __constructors_route = '/'.join([__resources_route, 'constructors'])
-    __drivers_route = '/'.join([__resources_route, 'drivers'])
-    __races_route = '/'.join([__resources_route, 'races'])
+    __orient = 'records'
 
     @classmethod
     def version(cls):
         """
-        @description: getter for version of package
+        @description: getter for version of the package
         """
         return cls.__version
 
     @classmethod
     def package(cls):
         """
-        @description: getter for package name
+        @description: getter for the package name
         """
         return cls.__package
 
     @classmethod
     def base_dir(cls):
         """
-        @description: getter for base directory
+        @description: getter for the base directory
         """
         return cls.__base_dir
 
     @classmethod
     def data_dir(cls):
         """
-        @description: getter for data directory
+        @description: getter for the data directory
         """
         return cls.__data_dir
 
     @classmethod
-    def circuits_file(cls):
-        """
-        @description: getter for circuits file
-        """
-        return cls.__circuits_file
-
-    @classmethod
-    def constructors_file(cls):
-        """
-        @description: getter for constructors file
-        """
-        return cls.__constructors_file
-
-    @classmethod
-    def drivers_file(cls):
-        """
-        @description: getter for drivers file
-        """
-        return cls.__drivers_file
-
-    @classmethod
-    def races_file(cls):
-        """
-        @description: getter for races file
-        """
-        return cls.__races_file
-
-    @classmethod
-    def orient(cls):
-        """
-        @description: getter for JSON format
-        """
-        return cls.__orient
-
-    @classmethod
     def api_route(cls):
         """
-        @description: getter for api route
+        @description: getter for the api route
         """
         return cls.__api_route
 
     @classmethod
-    def circuits_route(cls):
+    def resources_route(cls):
         """
-        @description: getter for circuits route
+        @description: getter for the resources route
         """
-        return cls.__circuits_route
+        return cls.__resources_route
 
     @classmethod
-    def constructors_route(cls):
+    def orient(cls):
         """
-        @description: getter for constructors route
+        @description: getter for the expected JSON string format
         """
-        return cls.__constructors_route
-
-    @classmethod
-    def drivers_route(cls):
-        """
-        @description: getter for drivers route
-        """
-        return cls.__drivers_route
-
-    @classmethod
-    def races_route(cls):
-        """
-        @description: getter for races route
-        """
-        return cls.__races_route
+        return cls.__orient

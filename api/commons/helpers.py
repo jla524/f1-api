@@ -6,10 +6,9 @@ from io import BytesIO
 from zipfile import ZipFile
 from urllib.request import urlopen
 
-from pandas import read_csv
-
 from api import Config
-from api.route.not_found import page_not_found
+from api.routes.not_found import page_not_found
+from api.commons.data_routes import DataRoutes
 
 
 def make_dataset():
@@ -27,43 +26,15 @@ def make_dataset():
             zip_file.extractall(data_dir)
 
 
-def pull_all_data(file):
+def get_file_name(name):
     """
-    @description: pull all data from file
+    @description: getter for a specific data file
     """
-    data = read_csv(file)
-    result = data.to_json(orient=Config.orient())
-    return loads(result)
+    return DataRoutes().get_file_map().get(name)
 
 
-def pull_filtered_data(file, columns, parameters):
+def get_route(name):
     """
-    @description: pull data from file and filter by parameters
+    @description: getter for a specific route name
     """
-    data = read_csv(file)
-    param_match = False
-
-    for column in columns:
-        param = parameters.get(column)
-        if param:
-            data = data[data[column].str.lower() == param.lower()]
-            param_match = True
-
-    if not param_match:
-        return page_not_found()
-
-    results = data.to_json(orient=Config.orient())
-    return loads(results)
-
-
-def get_data_file(name):
-    """
-    @description: maps the given name to a data file
-    """
-    file_map = {
-        'circuits': Config.circuits_file(),
-        'constructors': Config.constructors_file(),
-        'drivers': Config.drivers_file(),
-        'races': Config.races_file()
-    }
-    return file_map.get(name)
+    return DataRoutes().get_route_map().get(name)
