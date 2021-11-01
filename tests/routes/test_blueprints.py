@@ -11,11 +11,6 @@ class TestBlueprints(Fixture):
     """
     @description: test cases for all blueprints
     """
-    def test_get_blueprint(self):
-        """
-        @description: test the get_blueprint function for each stem
-        """
-
     def test_make_blueprints(self):
         """
         @description: get thee make_blueprints function
