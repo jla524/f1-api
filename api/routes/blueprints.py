@@ -25,7 +25,8 @@ def get_filtered_data(stem, parameters):
     """
     @description: read data from file and filter by parameters
     """
-    data = read_csv(helpers.get_file_name(stem))
+    file_name = helpers.get_file_name(stem)
+    data = read_csv(file_name).astype(str)
     param_match = False
 
     for column in data.columns:
