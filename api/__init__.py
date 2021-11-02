@@ -15,9 +15,9 @@ class ThreadSafeMeta(type):
     _instances = {}
     _lock = Lock()
 
-    def __call__(cls, *args, **kwargs):
-        with cls.lock:
-            if cls not in cls.instances:
+    def __call__(cls, *args, **kwargs) -> any:
+        with cls._lock:
+            if cls not in cls._instances:
                 instance = super().__call__(*args, **kwargs)
                 cls._instances[cls] = instance
         return cls._instances[cls]
@@ -38,49 +38,49 @@ class Config(metaclass=ThreadSafeMeta):
     __orient = 'records'
 
     @classmethod
-    def version(cls):
+    def version(cls) -> str:
         """
         @description: getter for version of the package
         """
         return cls.__version
 
     @classmethod
-    def package(cls):
+    def package(cls) -> str:
         """
         @description: getter for the package name
         """
         return cls.__package
 
     @classmethod
-    def base_dir(cls):
+    def base_dir(cls) -> Path:
         """
         @description: getter for the base directory
         """
         return cls.__base_dir
 
     @classmethod
-    def data_dir(cls):
+    def data_dir(cls) -> Path:
         """
         @description: getter for the data directory
         """
         return cls.__data_dir
 
     @classmethod
-    def api_route(cls):
+    def api_route(cls) -> str:
         """
         @description: getter for the api route
         """
         return cls.__api_route
 
     @classmethod
-    def resources_route(cls):
+    def resources_route(cls) -> str:
         """
         @description: getter for the resources route
         """
         return cls.__resources_route
 
     @classmethod
-    def orient(cls):
+    def orient(cls) -> str:
         """
         @description: getter for the expected JSON string format
         """
