@@ -1,6 +1,8 @@
 """
 Define helper functions
 """
+from pathlib import Path
+
 from io import BytesIO
 from zipfile import ZipFile
 from urllib.request import urlopen
@@ -9,7 +11,7 @@ from api import Config
 from api.commons.data_routes import DataRoutes
 
 
-def make_dataset():
+def make_dataset() -> None:
     """
     @description: download the F1 dataset if it is not in the data/ directory
     """
@@ -24,15 +26,15 @@ def make_dataset():
             zip_file.extractall(data_dir)
 
 
-def get_file_name(name):
+def get_file_name(stem) -> Path:
     """
     @description: getter for a specific data file
     """
-    return DataRoutes().get_file_map().get(name)
+    return DataRoutes().get_file_map().get(stem)
 
 
-def get_route(name):
+def get_route(stem) -> str:
     """
     @description: getter for a specific route name
     """
-    return DataRoutes().get_route_map().get(name)
+    return DataRoutes().get_route_map().get(stem)
