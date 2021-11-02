@@ -14,11 +14,11 @@ from api.routes import blueprints
 
 class TestBlueprints(Fixture):
     """
-    @description: test cases for blueprints
+    @description: test cases for blueprint functions
     """
     def test_get_all_data(self):
         """
-        @description: test the get_all_data method
+        @description: test the get_all_data function
         """
         for stem in DataRoutes().get_stems():
             data = blueprints.get_all_data(stem)
@@ -27,7 +27,7 @@ class TestBlueprints(Fixture):
 
     def test_get_filtered_data(self):
         """
-        @description: test the get_filtered_data method
+        @description: test the get_filtered_data function
         """
         for stem in DataRoutes().get_stems():
             file_name = helpers.get_file_name(stem)
@@ -41,7 +41,7 @@ class TestBlueprints(Fixture):
 
     def test_get_blueprint(self):
         """
-        @description: test the get_blueprint method
+        @description: test the get_blueprint function
         """
         for stem in DataRoutes().get_stems():
             prefix = helpers.get_route(stem)
@@ -51,7 +51,7 @@ class TestBlueprints(Fixture):
 
     def test_make_blueprints(self):
         """
-        @description: test the make_blueprints method
+        @description: test the make_blueprints function
         """
         _blueprints = blueprints.make_blueprints()
         self.assertTrue(isinstance(_blueprints, list))
