@@ -1,5 +1,5 @@
 """
-Define content for the /api/v1/resources/circuits route
+Define methods to create blueprints for each data file
 """
 from json import loads
 
