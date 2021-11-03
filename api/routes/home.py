@@ -8,7 +8,7 @@ home = Blueprint('home', __name__, url_prefix=Config.api_route())
 
 
 @home.route('/', methods=['GET'])
-def api_description():
+def api_description() -> str:
     """
     @description: give a brief description of the API in the home page
     """
