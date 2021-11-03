@@ -2,16 +2,7 @@
 Define a class to hold names of data files and routes
 """
 from pathlib import Path
-
 from api import Config
-
-
-def read_data_files() -> list[Path]:
-    """
-    @description: get a list of file path from data_dir
-    """
-    data_files = Config.data_dir().iterdir()
-    return list(data_files)
 
 
 class DataRoutes:
@@ -19,10 +10,18 @@ class DataRoutes:
     @description: hold names of data files and routes
     """
     def __init__(self) -> None:
-        self.__data_files = read_data_files()
+        self.__data_dir = Config.data_dir()
+        self.__data_files = self.__read_data_files()
         self.__stems = self.__make_stems()
         self.__file_map = self.__make_file_map()
         self.__route_map = self.__make_route_map()
+
+    def __read_data_files(self) -> list[Path]:
+        """
+        @description: get a list of file path from data_dir
+        """
+        data_files = self.__data_dir.iterdir()
+        return list(data_files)
 
     def __make_stems(self) -> list[str]:
         """
