@@ -4,7 +4,8 @@ Define functions to test api/data/make_dataset
 from shutil import rmtree
 
 from api import Config
-from api.data_routes import helpers, DataRoutes
+from api.commons import helpers
+from api.commons.data_routes import DataRoutes
 from api.data.make_dataset import download_data
 from tests.fixture import Fixture
 
