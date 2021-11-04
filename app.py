@@ -1,27 +1,27 @@
 """
 Create and run the Flask app
 """
-from flask import Flask
+from flask import app, Flask
 
 from api.routes.home import home
+from api.data.make_dataset import download_data
 from api.routes.blueprints import make_blueprints
-from api.commons.helpers import make_dataset
 
 
-def create_app():
+def create_api() -> app.Flask:
     """
-    @description: create the Flask app
+    @description: create the Flask api
     """
-    app = Flask(__name__)
-    app.config.from_object('config')
-    make_dataset()
+    download_data()
 
-    app.register_blueprint(home)
+    api = Flask(__name__)
+    api.config.from_object('config')
+    api.register_blueprint(home)
 
     for blueprint in make_blueprints():
-        app.register_blueprint(blueprint)
+        api.register_blueprint(blueprint)
 
-    return app
+    return api
 
 
 if __name__ == '__main__':
@@ -37,5 +37,5 @@ if __name__ == '__main__':
     host = args.host
     port = args.port
 
-    my_app = create_app()
-    my_app.run(host=host, port=port)
+    f1_api = create_api()
+    f1_api.run(host=host, port=port)
