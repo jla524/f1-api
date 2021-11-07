@@ -5,7 +5,7 @@ from flask import Flask
 
 from api.routes.home import home
 from api.routes.blueprints import make_blueprints
-from api.commons.helpers import make_dataset
+from api.data.make_dataset import download_data
 
 
 def create_app():
@@ -14,7 +14,7 @@ def create_app():
     """
     app = Flask(__name__)
     app.config.from_object('config')
-    make_dataset()
+    download_data()
 
     app.register_blueprint(home)
 
