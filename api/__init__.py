@@ -29,6 +29,7 @@ class Config(metaclass=ThreadSafeMeta):
     """
     __version = '0.1.0'
     __package = __package__
+    __default_env = 'dev'
 
     __base_dir = Path(__file__).resolve(strict=True).parent.parent
     __data_dir = __base_dir / 'data'
@@ -50,6 +51,13 @@ class Config(metaclass=ThreadSafeMeta):
         @description: getter for the package name
         """
         return cls.__package
+
+    @classmethod
+    def default_env(cls) -> str:
+        """
+        @description: getter for the default env
+        """
+        return cls.__default_env
 
     @classmethod
     def base_dir(cls) -> Path:
