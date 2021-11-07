@@ -13,17 +13,6 @@ class TestHelpers(Fixture):
     """
     _non_stems = ['circuit', 'driver', 'and', 'other', 'names']
 
-    def test_make_dataset(self):
-        """
-        @description: test the make_dataset function
-        """
-        helpers.make_dataset()
-        self.assertTrue(Config.data_dir().is_dir())
-
-        for stem in DataRoutes().get_stems():
-            file = helpers.get_file_name(stem)
-            self.assertTrue(file.is_file())
-
     def test_get_file_name(self):
         """
         @descrirption: test the get_file_name function
