@@ -10,7 +10,8 @@ from api import Config
 
 def download_data() -> None:
     """
-    @description: download the F1 dataset if it is not in the data/ directory
+    @description: download the F1 dataset and unzip the CSV files into the
+      data directory if the directory does not exist
     """
     data_dir = Config.data_dir()
 
