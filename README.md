@@ -12,8 +12,7 @@ the world championship in 1950.
 The dataset is provided by [Ergast Developer][2]
 
 
-
-## Instructions to run
+## Quickstart Guide
 ```
 poetry install
 
