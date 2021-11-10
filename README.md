@@ -16,11 +16,11 @@ The dataset is provided by [Ergast Developer][2]
 
 1. Install dependencies with [poetry][3]
 
-`poetry install`
+   `poetry install`
 
 2. Run a development server
 
-`poetry run flask run`
+   `poetry run flask run`
 
 3. Navigate to http://127.0.0.1:5000/api
 
@@ -33,9 +33,9 @@ The data routes are in `api/v1/resource/<route>` format.
 
 For example, all drivers can be found in http://127.0.0.1:5000/api/v1/resources/drivers/all.
 
-Queries can be performed by specifying the column and value.
+In addition, queries can be performed by specifying the column and value.
 
-For example, driver number 33 is in http://127.0.0.1:5000/api/v1/resources/drivers?number=33.
+Driver number 33 can be found in http://127.0.0.1:5000/api/v1/resources/drivers?number=33.
 
 
 [1]: https://en.wikipedia.org/wiki/Formula_One/
