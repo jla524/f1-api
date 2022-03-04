@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "f1-api"
+name = "api"
 version = "0.1.0"
 description = ""
 authors = ["Jacky Lee <jla524@sfu.ca>"]
@@ -11,6 +11,12 @@ pandas = "^1.3.4"
 pylint = "^2.11.1"
 
 [tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+api = "zoom_report.main:run"
+analyze = "scripts.project_helper:run_analyzer"
+lint = "scripts.project_helper:run_linter"
+test = "scripts.project_helper:run_tests"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
