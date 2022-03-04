@@ -1,6 +1,8 @@
 """
 Create and run the Flask app
 """
+from argparse import ArgumentParser
+
 from flask import Flask
 
 from api.routes.home import home
@@ -24,9 +26,10 @@ def create_app():
     return app
 
 
-if __name__ == '__main__':
-    from argparse import ArgumentParser
-
+def run():
+    """
+    @description: run the app with specified host and port
+    """
     parser = ArgumentParser()
     parser.add_argument('-H', '--host', default='0.0.0.0',
                         type=str, help='the interface to bind to')
@@ -39,3 +42,7 @@ if __name__ == '__main__':
 
     my_app = create_app()
     my_app.run(host=host, port=port)
+
+
+if __name__ == '__main__':
+    run()
