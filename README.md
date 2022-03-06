@@ -35,7 +35,7 @@ For example, all drivers can be found in http://127.0.0.1:5000/api/v1/resources/
 
 In addition, queries can be performed by specifying the column and value.
 
-Driver number 33 can be found in http://127.0.0.1:5000/api/v1/resources/drivers?number=33.
+For example, driver number 33 can be found in http://127.0.0.1:5000/api/v1/resources/drivers?number=33.
 
 
 [1]: https://en.wikipedia.org/wiki/Formula_One/
